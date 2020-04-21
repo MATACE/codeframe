@@ -1,4 +1,0 @@
-/home/dev/workspace/tmp/code_study/study_cpp/coroutines/demo/build/CMakeFiles/rebuild_cache.dir
-/home/dev/workspace/tmp/code_study/study_cpp/coroutines/demo/build/CMakeFiles/demo.dir
-/home/dev/workspace/tmp/code_study/study_cpp/coroutines/demo/build/CMakeFiles/edit_cache.dir
-/home/dev/workspace/tmp/code_study/study_cpp/coroutines/demo/build/CMakeFiles/pro.dir
