@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -DCOM_X64 -g -W -g  -shared -Wl,-soname,libpro.so.1 -o libpro.so.1.0.0 CMakeFiles/pro.dir/home/dev/workspace/tmp/code_study/study_cpp/coroutines/src/service.cpp.o CMakeFiles/pro.dir/home/dev/workspace/tmp/code_study/study_cpp/coroutines/src/project.cpp.o -lglog -ldl 

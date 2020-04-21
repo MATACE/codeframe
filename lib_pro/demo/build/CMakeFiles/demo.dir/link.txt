@@ -1,0 +1,1 @@
+/usr/bin/c++   -DCOM_X64 -g -W -g   CMakeFiles/demo.dir/demo.cpp.o  -o demo  -L/home/dev/workspace/tmp/code_study/study_cpp/coroutines/demo/lib/x64/boost/lib -lglog -ldl -Wl,-rpath,/home/dev/workspace/tmp/code_study/study_cpp/coroutines/demo/lib/x64/boost/lib 
