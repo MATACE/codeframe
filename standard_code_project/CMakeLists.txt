@@ -55,6 +55,11 @@ if(SET_OUTPUT_FILE_PATH)
     )
 endif(SET_OUTPUT_FILE_PATH)
 
+# Set the lib output path
+set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/build/libs/lib)
+file(GLOB_RECURSE ALL_HEARD_FILE ${CMAKE_CURRENT_LIST_DIR}/include/*.h)
+file(COPY ${ALL_HEARD_FILE} DESTINATION ${CMAKE_CURRENT_LIST_DIR}/build/libs/include)
+
 # Set the build type: Debug or Release
 if (CMAKE_BUILD_TYPE MATCHES "Debug" OR CMAKE_BUILD_TYPE MATCHES "None")
     MESSAGE(STATUS "CMAKE_BUILD_TYPE is Debug")
