@@ -1,15 +1,25 @@
 #
 # For x64 compile, please use command
-# cmake ..
+# cmake -DCMAKE_BUILD_TYPE=Debug ..
 # For arm cross compile, please use command
-# cmake -DPLATFORM=arm ..
+# For Debug Version
+# cmake -DPLATFORM=arm -DCMAKE_BUILD_TYPE=Debug ..
+# For Release Version
+# cmake -DPLATFORM=arm -DCMAKE_BUILD_TYPE=Release ..
 # make -j4 && make install
 #
 
 cmake_minimum_required (VERSION 3.5)
 
 option(BUILD_SHARED_LIBS "Build the project shared library" ON)
-option(SET_OUTPUT_FILE_PATH "Set the bin output file paht" OFF) 
+option(SET_OUTPUT_FILE_PATH "Set the bin output file paht" OFF)
+
+# Set project name.
+project(pro)
+
+# Set C and C++ build version.
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD 11)
 
 # Set the library version.
 if(BUILD_SHARED_LIBS)
@@ -45,12 +55,20 @@ if(SET_OUTPUT_FILE_PATH)
     )
 endif(SET_OUTPUT_FILE_PATH)
 
-# Set project name.
-project(pro)
+# Set the build type: Debug or Release
+if (CMAKE_BUILD_TYPE MATCHES "Debug" OR CMAKE_BUILD_TYPE MATCHES "None")
+    MESSAGE(STATUS "CMAKE_BUILD_TYPE is Debug")
+    set(CMAKE_BUILD_GLOG_LOG_LEVEL "INFO")
+else()
+    MESSAGE(STATUS "CMAKE_BUILD_TYPE is Release")
+    set(CMAKE_BUILD_GLOG_LOG_LEVEL "ERROR")
+endif()
 
-# Set C and C++ build version.
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 11)
+configure_file(
+    "${CMAKE_CURRENT_LIST_DIR}/macro/cmake_build_macro.h.in"
+    "${CMAKE_CURRENT_LIST_DIR}/macro/cmake_build_macro.h"
+)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/macro)
 
 # Build different platformat code.
 if (PLATFORM MATCHES "arm")
@@ -89,7 +107,7 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src ALL_SRC)
 
 # Set share library
-if(BUILD_SHARED_LIBS)
+if (BUILD_SHARED_LIBS)
     add_library(pro SHARED ${ALL_SRC})
 else()
     add_library(pro STATIC ${ALL_SRC})
@@ -112,7 +130,7 @@ endif()
 # set_property(TARGET pro PROPERTY C_STANDARD 99)
 # set_property(TARGET pro PROPERTY C_STANDARD_REQUIRED ON)
 
-if(BUILD_SHARED_LIBS)
+if (BUILD_SHARED_LIBS)
 set_target_properties(pro
     PROPERTIES
         SOVERSION ${VERSION_MAJOR}

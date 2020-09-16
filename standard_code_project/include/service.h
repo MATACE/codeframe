@@ -6,6 +6,8 @@
 #include <iostream>
 
 #include <glog/logging.h>
+#include <version.h>
+#include <cmake_build_macro.h>
 
 using namespace std;
 

@@ -2,7 +2,13 @@
 
 Service::Service()
 {
+    // Set glog paramter.
+    string glog_name = "pro";
+    string glog_path = "./log";
+    string glog_level = CMAKE_BUILD_GLOG_LOG_LEVEL;
 
+    // Init Glog;
+    GlogInit(glog_name, glog_level, glog_path);
 }
 
 Service::~Service()
@@ -12,18 +18,8 @@ Service::~Service()
 
 void Service::Start()
 {
-    // Set glog paramter.
-    string glog_name = "pro";
-    string glog_path = "./log";
-    string glog_level = "INFO";
-
-    // Create hte glog log path.
-    if (!(access(glog_path.c_str(), F_OK) == 0)) {
-        system("mkdir ./log");
-    }
-
-    // Init Glog;
-    GlogInit(glog_name, glog_level, glog_path);
+    // Get the dynamic lib version.
+    LOG(INFO) << "Dynamic Lib Version: " << VERSION_MAJOR << "." << VERSION_MINOR << "." << VERSION_PATCH;
 
     LOG(INFO) << "Service Start";
 
@@ -35,6 +31,11 @@ void Service::Start()
 
 void Service::GlogInit(string glog_name, string glog_leve, string glog_path)
 {
+    // Create hte glog log path.
+    if (!(access(glog_path.c_str(), F_OK) == 0)) {
+        system("mkdir ./log");
+    }
+
     // Init glog
     string c_glog_name = glog_name;
     google::InitGoogleLogging(c_glog_name.c_str());
