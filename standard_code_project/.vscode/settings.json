@@ -74,22 +74,23 @@
     "license-header-manager.additionalCommentStyles": [
         {
             "extension": [
-                // The need head license file
-                ".cpp",
+                // The need head license file, if add the cpp to the extension
+                // array the head file can't be rigth add.
                 ".h"
             ],
-            "commentStart": " /*",
-            "commentMiddle": " * ",
-            "commentEnd": " */",
+            // Control the head of file charcter.
+            "commentStart": "/** ",
+            "commentMiddle": " *",
+            "commentEnd": " */ ",
         }
     ],
     "license-header-manager.excludeExtensions": [
         // The need ignore need head license file
         //".java",
-        //".cpp",
         // ".h",
         ".sh",
-        ".c"
+        ".c",
+        ".cpp"
     ],
     "license-header-manager.excludeFolders": [
         // The need ignore need head license floader
