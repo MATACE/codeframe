@@ -13,6 +13,7 @@ cmake_minimum_required (VERSION 3.5)
 
 option(BUILD_SHARED_LIBS "Build the project shared library" ON)
 option(SET_OUTPUT_FILE_PATH "Set the bin output file paht" OFF)
+option(SET_LIB_OUTPUT_PATH "Set the lib output path" OFF)
 
 # Set project name.
 project(pro)
@@ -56,9 +57,11 @@ if(SET_OUTPUT_FILE_PATH)
 endif(SET_OUTPUT_FILE_PATH)
 
 # Set the lib output path
-set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/build/libs/lib)
-file(GLOB_RECURSE ALL_HEARD_FILE ${CMAKE_CURRENT_LIST_DIR}/include/*.h)
-file(COPY ${ALL_HEARD_FILE} DESTINATION ${CMAKE_CURRENT_LIST_DIR}/build/libs/include)
+if(SET_LIB_OUTPUT_PATH)
+    set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/build/libs/lib)
+    file(GLOB_RECURSE ALL_HEARD_FILE ${CMAKE_CURRENT_LIST_DIR}/include/*.h)
+    file(COPY ${ALL_HEARD_FILE} DESTINATION ${CMAKE_CURRENT_LIST_DIR}/build/libs/include)
+endif()
 
 # Set the build type: Debug or Release
 if (CMAKE_BUILD_TYPE MATCHES "Debug" OR CMAKE_BUILD_TYPE MATCHES "None")
