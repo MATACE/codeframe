@@ -1,4 +1,4 @@
-__all__ = ['main', 'func']
+__all__ = ['func', 'log']
 
-from . import main
 from . import func
+from . import log

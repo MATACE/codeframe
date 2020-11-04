@@ -1,6 +1,6 @@
 # IDE Config file
 .dea
-.vscode
+#.vscode
 
 # Window Python sdk directory
 __pycache__
