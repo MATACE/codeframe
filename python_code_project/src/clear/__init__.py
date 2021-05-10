@@ -3,4 +3,4 @@
 
 __all__ = ['path_union']
 
-from . import path_union
+from .path_union import PathUnion

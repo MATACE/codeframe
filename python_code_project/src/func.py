@@ -2,10 +2,9 @@
 # coding=utf-8
 
 import logging
-from src.mode1 import mode1
-from src.mode2 import mode2
-from src.log   import LogOp
-
+from . import mode1
+from . import mode2
+from .log import LogOp
 
 def func():
     # Init the logging
@@ -15,5 +14,13 @@ def func():
     mode2.mode2()
 
 def init_log():
+    """
+    Init the python user log
+
+    Args:
+        None
+    Return:
+        None
+    """
     log_op = LogOp()
     log_op.config_log(logging.DEBUG)

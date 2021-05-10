@@ -2,10 +2,10 @@
 # coding=utf-8
 
 #Import module
-from src import func
+from src.func import func
 
 def main():
-    func.func()
+    func()
 
 if __name__ == '__main__':
     main()

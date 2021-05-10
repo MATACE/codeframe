@@ -1,4 +1,31 @@
 
+## 2021-05-10
+### Other Changes
+- scope(python): add the python package install and rebuit project codefram
+
+
+## 2020-11-04
+### Other Changes
+- scope(c_project): add the c code project codeframe.
+
+
+## 2020-10-16
+### Other Changes
+- add(python_project):add the python project corefram
+
+
+## 2020-10-14
+### Other Changes
+- scope(valgrind): add valgrind x64 lib and checkout
+
+
+## 2020-10-13
+### Other Changes
+- scope(python_code_project): add the python code project
+- scope(glog_x64_lib): add the glog x64 lib
+- script(demo build): add the demo build.sh
+
+
 ## 2020-10-10
 ### Features
 - feature(.vscode/change.sh): change the head file lience and add the change shell script

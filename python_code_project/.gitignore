@@ -1,5 +1,7 @@
 # IDE Config file
-.dea
+.idea
+package_demo.egg-info
+dist/
 #.vscode
 
 # Window Python sdk directory
